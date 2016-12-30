@@ -1,16 +1,16 @@
 module CraigsGem
   class Posting
 
-    AREAS = YAML.load_file "config/areas.yml"
-    CATEGORIES = YAML.load_file "config/categories.yml"
-    AUTO_BASICS = YAML.load_file "config/auto_basics.yml"
-    ALLOWED_OPTIONALS = YAML.load_file("config/optionals.yml")['allowed'].map(&:to_sym)
+    AREAS = YAML.load_file File.join(File.dirname(__FILE__),"config/areas.yml")
+    CATEGORIES = YAML.load_file File.join(File.dirname(__FILE__), "config/categories.yml")
+    AUTO_BASICS = YAML.load_file File.join(File.dirname(__FILE__),"config/auto_basics.yml")
+    ALLOWED_OPTIONALS = YAML.load_file(File.join(File.dirname(__FILE__),"config/optionals.yml"))['allowed'].map(&:to_sym)
 
-    AUTO_YEARS = ("1900".."2014").to_a
-    GENERIC_CONTACT_METHODS = YAML.load_file "config/generic_contact_methods.yml"
-    HOUSING_BASICS = YAML.load_file "config/housing_basics.yml"
+    AUTO_YEARS = ("1900".."2017").to_a
+    GENERIC_CONTACT_METHODS = YAML.load_file File.join(File.dirname(__FILE__), "config/generic_contact_methods.yml")
+    HOUSING_BASICS = YAML.load_file File.join(File.dirname(__FILE__), "config/housing_basics.yml")
     RENT_PERIOD = %w(daily monthly weekly yearly)
-    EVENTS = YAML.load_file "config/events.yml"
+    EVENTS = YAML.load_file File.join(File.dirname(__FILE__), "config/events.yml")
 
     attr_reader :name, :required_items, :optional_items, :errors
     attr_accessor :craigslist_posting_status

@@ -1,7 +1,7 @@
 module CraigsGem
   class BulkPoster
 
-    URLS = YAML.load_file "config/urls.yml"
+    URLS = YAML.load_file File.join(File.dirname(__FILE__), "config/urls.yml")
 
     attr_reader :account, :postings, :errors, :submission_rss
 
